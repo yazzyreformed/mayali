@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1920&q=85&fit=crop\" -o hero.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=900&q=85&fit=crop\" -o katalog-1.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=900&q=85&fit=crop\" -o katalog-2.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1603532648955-039310d9ed75?w=900&q=85&fit=crop\" -o katalog-3.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=500&q=80&fit=crop\" -o urun-1.png)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=700&q=80&fit=crop\" -o musteri-5.jpg)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3001)",
+      "Bash(cp /Users/zemherisyy/Downloads/mayali-main-3/public/hero_baklava.png /Users/zemherisyy/Documents/projeler/mayalifirinclaude/public/)",
+      "Bash(cp /Users/zemherisyy/Downloads/mayali-main-3/public/menu_katmer.png /Users/zemherisyy/Documents/projeler/mayalifirinclaude/public/)",
+      "Bash(npx tsc *)",
+      "Bash(curl -s http://localhost:3001)",
+      "Bash(curl -L \"https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1800&q=90&fm=jpg&fit=crop\" -o /Users/zemherisyy/Documents/projeler/mayalifirinclaude/public/hero_baklava.png)",
+      "Bash(curl -sI \"https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=1800&q=90&fm=jpg&fit=crop\")",
+      "Bash(curl -sI \"https://images.unsplash.com/photo-1549931319-a545dcf3bc7a?w=1800&q=90&fm=jpg&fit=crop\")",
+      "Bash(curl -L \"https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=1800&q=90&fm=jpg&fit=crop\" -o /Users/zemherisyy/Documents/projeler/mayalifirinclaude/public/hero_opt1.jpg)",
+      "Bash(curl -L \"https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=1800&q=90&fm=jpg&fit=crop\" -o /Users/zemherisyy/Documents/projeler/mayalifirinclaude/public/hero_opt2.jpg)",
+      "Bash(curl -L \"https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?w=1800&q=90&fm=jpg&fit=crop\" -o /Users/zemherisyy/Documents/projeler/mayalifirinclaude/public/hero_opt3.jpg)",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(lsof -ti:3000)",
+      "Bash(lsof -ti:3001)",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(lsof -i:3000 -i:3001)",
+      "Read(//tmp/**)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3099/)"
+    ]
+  }
+}

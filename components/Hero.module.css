@@ -1,0 +1,151 @@
+/* ══════════════════════════════════════════════════════════════
+   Hero.module.css — mayali-main-3 birebir port (Next.js)
+   ══════════════════════════════════════════════════════════════ */
+
+.heroSection {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #F5EDD0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 12vh;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+/* ── BAŞLIK ───────────────────────────────────────────────── */
+.heroTitle {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(2rem, 5.5vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-align: center;
+  text-transform: uppercase;
+  color: #3B1A06;
+  position: relative;
+  z-index: 5;
+  margin-bottom: clamp(1.5rem, 2.5vw, 2.5rem);
+  margin-top: clamp(0.5rem, 1.5vw, 1.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.05em;
+}
+
+.titleLine {
+  display: block;
+  overflow: hidden;
+}
+
+/* ── TAGLINE ──────────────────────────────────────────────── */
+.heroTagline {
+  font-family: var(--font-editorial);
+  font-size: clamp(0.9rem, 1.4vw, 1.2rem);
+  font-style: italic;
+  color: #6B3410;
+  opacity: 0.75;
+  text-align: center;
+  letter-spacing: 0.02em;
+  margin-top: -0.5rem;
+  margin-bottom: clamp(1.2rem, 2vw, 2rem);
+  position: relative;
+  z-index: 5;
+}
+
+/* ── CTA BUTONLAR ─────────────────────────────────────────── */
+.heroCta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: clamp(1.5rem, 2.5vw, 2.5rem);
+  position: relative;
+  z-index: 5;
+}
+
+.ctaPrimary {
+  font-family: var(--font-body);
+  font-size: clamp(0.75rem, 1vw, 0.88rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #F5EDD0;
+  background-color: #3B1A06;
+  border: none;
+  border-radius: 999px;
+  padding: 0.85rem 2rem;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.ctaPrimary:hover {
+  background-color: #6B3410;
+  transform: translateY(-2px);
+}
+
+.ctaSecondary {
+  font-family: var(--font-body);
+  font-size: clamp(0.75rem, 1vw, 0.88rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #3B1A06;
+  background-color: transparent;
+  border: 1.5px solid #3B1A06;
+  border-radius: 999px;
+  padding: 0.85rem 2rem;
+  text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.ctaSecondary:hover {
+  background-color: #3B1A06;
+  color: #F5EDD0;
+  transform: translateY(-2px);
+}
+
+/* ── HERO IMAGE WRAPPER ───────────────────────────────────── */
+.heroImageWrapper {
+  position: relative;
+  z-index: 3;
+  width: clamp(300px, 72vw, 900px);
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow:
+    0 8px 32px rgba(59, 26, 6, 0.18),
+    0 40px 80px rgba(59, 26, 6, 0.1);
+}
+
+/* ── HERO IMAGE ───────────────────────────────────────────── */
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  clip-path: inset(50% 50% 50% 50% round 20px);
+  will-change: clip-path;
+}
+
+/* ── ALT SMOOTH BEZIER WAVE ───────────────────────────────── */
+.heroBottomWave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: clamp(300px, 47vh, 520px);
+  z-index: 2;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.heroBottomWave svg {
+  width: 108%;
+  height: 100%;
+  margin-left: -4%;
+  display: block;
+}

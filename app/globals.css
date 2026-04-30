@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Renk Sistemi — mayali-main-3'ten alındı ─── */
+:root {
+  /* mayali-main-3 orijinal değerler */
+  --bg-cream:   #F5EDD6;
+  --bg-warm:    #EDE0C4;
+  --bg-dark:    #130C04;
+  --bg-green:   #1C2E24;
+  --text-brown: #3e2723;
+  --accent-gold:   #C8A045;
+  --accent-orange: #D85C27;
+  --radius-sm: 16px;
+  --radius-md: 32px;
+  --radius-lg: 64px;
+
+  /* Proje değişkenleri → mayali-main-3 paletine eşlendi */
+  --color-primary: #3e2723;   /* text-brown   */
+  --color-accent:  #C8A045;   /* accent-gold  */
+  --color-light:   #F5EDD6;   /* bg-cream     */
+  --color-brown:   #D85C27;   /* accent-orange */
+  --color-dark:    #130C04;   /* bg-dark      */
+  --color-green:   #1C2E24;   /* bg-green     */
+
+  /* Semantic font aliases (CSS module'ler bu değişkenleri kullanır) */
+  --font-heading:  var(--font-outfit), system-ui, sans-serif;
+  --font-body:     var(--font-inter), system-ui, sans-serif;
+  --font-editorial: var(--font-cormorant), Georgia, serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  background: var(--color-light);
+  color: var(--color-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Outfit — tüm başlıklar (mayali-main-3 h1-h6 kuralı) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-outfit), system-ui, sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-cream); }
+::-webkit-scrollbar-thumb { background: var(--text-brown); border-radius: 10px; }
+
+/* ─── Marquee ─── */
+@keyframes marqueeLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes marqueeRight {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+.marquee-left  { animation: marqueeLeft  30s linear infinite; }
+.marquee-right { animation: marqueeRight 30s linear infinite; }
+.marquee-track { display: flex; align-items: center; width: max-content; will-change: transform; }
+
+/* ─── Fade-in utility ─── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.animate-fade-in-up { animation: fadeInUp 1s ease-out forwards; }
+.animate-fade-in    { animation: fadeIn 0.8s ease-out forwards; }
+
+/* ─── Scrollbar gizle ─── */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ──────────────────────────────────────────────────────────────
+   DATA-REVEAL SİSTEMİ — mayali-main-3 index.css birebir port
+   body.--js-ready class'ı SiteLoader tarafından set edilir.
+   ────────────────────────────────────────────────────────── */
+
+/* Başlık satırı: yukarıdan aşağı clip-path reveal */
+[data-reveal="mask-down"] {
+  display: block;
+  overflow: hidden;
+  clip-path: inset(0 0 100% 0);
+  will-change: clip-path;
+  transition: clip-path 900ms cubic-bezier(0.77, 0, 0.175, 1) var(--delay, 0ms);
+}
+body.--js-ready [data-reveal="mask-down"] {
+  clip-path: inset(0 0 0% 0);
+}
+
+/* Nav / tagline: fade + hafif yukarı kayma */
+[data-reveal="fade-up"] {
+  opacity: 0;
+  transform: translateY(-10px);
+  will-change: opacity, transform;
+  transition:
+    opacity   600ms linear                         var(--delay, 0ms),
+    transform 600ms cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0ms);
+}
+body.--js-ready [data-reveal="fade-up"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Wave SVG — alttan yukarı slide */
+[data-reveal="wave-up"] {
+  transform: translateY(100%);
+  will-change: transform;
+  transition: transform 1200ms cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 400ms);
+}
+body.--js-ready [data-reveal="wave-up"] {
+  transform: translateY(0);
+}
+
+/* ──────────────────────────────────────────────────────────────
+   SITE LOADER — mayali-main-3 index.css birebir port
+   Clip-path shrink tamamen JS ile yönetiliyor (SiteLoader.tsx).
+   CSS sadece: başlangıç durumu + swirl dönüş animasyonu.
+   ────────────────────────────────────────────────────────── */
+
+.site-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Başlangıç: full-screen. JS ile clip-path hedef rect'e geçiş yapılır. */
+.site-loader__wrap {
+  position: absolute;
+  inset: 0;
+  background-color: #6B3311;
+  clip-path: inset(0% 0% 0% 0% round 0px);
+  will-change: clip-path;
+}
+
+/* Swirl — JS ile px cinsinden konumlandırılır, transform yok */
+.site-loader__swirl {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(180px, 28vmin, 320px);
+  height: clamp(180px, 28vmin, 320px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: opacity;
+}
+
+/* Swirl SVG: sonsuz dönüş (JS opacity ile söndürülür) */
+.site-loader-swirl-svg {
+  width: 100%;
+  height: 100%;
+  animation: SiteLoaderSwirl 1.8s linear infinite;
+  will-change: transform;
+}
+
+@keyframes SiteLoaderSwirl {
+  from { transform: rotate(0turn); }
+  to   { transform: rotate(1turn); }
+}
+
+/* ─── WhatsApp pulse ─── */
+@keyframes pulse-wa {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
+  70%       { box-shadow: 0 0 0 12px rgba(37,211,102,0); }
+}
+.wa-pulse { animation: pulse-wa 2.5s infinite; }
