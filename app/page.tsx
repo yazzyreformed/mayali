@@ -499,7 +499,7 @@ export default function HomePage() {
         </div>
 
         {/* Scroll sonrası açılan metin */}
-        <div ref={ortaMetinRef} className="relative z-20 text-center px-4 pointer-events-none max-w-2xl mx-auto">
+        <div ref={ortaMetinRef} className="relative z-20 text-center px-4 pointer-events-none max-w-2xl mx-auto" style={{ opacity: 0 }}>
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="h-px w-12" style={{ background: "var(--accent-gold)" }} />
             <div className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--accent-gold)" }} />
